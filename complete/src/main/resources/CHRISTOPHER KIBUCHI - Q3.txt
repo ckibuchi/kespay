@@ -1,0 +1,64 @@
+STAGE: PRODUCT DELIVERY
+
+
+OrderAction.java
+=================
+
+import java.util.List;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author CKIBUCHI1
+ */
+public class OrderAction {
+    public String receiveOrderFromERP(int orderNum,int customerId,List<Item> items) 
+//This function can be exposed through a controller that ERP will call this through an API
+    {
+        String ret;
+    // format order with customer details and list of items
+    //Save the order in the database, and probably notify the customer and also show on the portal
+    //if order created successfull
+        ret="S";
+     //else
+        ret ="F";
+        return ret;
+    }
+    public String customerReceiveOrder(int orderNum,int customerId,boolean received)
+    {
+         String ret;
+    //
+    //if received is true
+    //Call ERP API to update order status as received by the customer real-time
+    // Also update on the new system for audit purposes
+        ret="S";
+     //else
+        ret ="F";
+        return ret;
+    }
+}
+
+Order Item:
+Item.java
+==========
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author CKIBUCHI1
+ */
+public class Item {
+    int itemId;
+    String itemName;
+    String uom; //units of measure
+}
+
